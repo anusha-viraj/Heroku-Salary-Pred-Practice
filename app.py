@@ -16,9 +16,10 @@ def predict():
     For rendering results on HTML GUI
     '''
     yearsExp = float(request.form['yearsExp'])
-    prediction = model.predict(yearsExp)
+    finalPrediction = np.array([[yearsExp]])
+    prediction = model.predict(finalPrediction)
 
-    return render_template('index.html', prediction_text='Expected Profit from the Startup is  $ {}'.format(prediction[0]))
+    return render_template('index.html', prediction_text='Expected Profit from the Startup is  $ {}'.format(prediction))
 
 
 if __name__ == "__main__":
