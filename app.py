@@ -15,9 +15,8 @@ def predict():
     '''
     For rendering results on HTML GUI
     '''
-    rdSpend = float(request.form['yearsExp'])
-    state = request.form['state']
-    prediction = model.predict(finalFeatures)
+    yearsExp = float(request.form['yearsExp'])
+    prediction = model.predict(yearsExp)
 
     return render_template('index.html', prediction_text='Expected Profit from the Startup is  $ {}'.format(prediction[0]))
 
